@@ -1,0 +1,33 @@
+{
+  "services":{
+    "facebook": {
+      "appId": "607364192698630",
+      "secret": "184bb5c15e2e978b7689b58d473272f0"
+    },
+    "customerio": {
+      "siteId":"ab24c1fb9db0b4728271",
+      "token":"c0bde3407577ff5aba05"
+    }
+  },
+  "public": {
+    "public": {
+    "appName": "chillax",
+    "env": {
+      "development": true,
+      "production": false
+    },
+    "services": {
+      "mixpanel": {
+        "token": "f61214b34941e48f2fd2166fe5632881",
+        "apiKey": "9ab3eb7dd9e88a9c3baaa3011d20f197"
+      },
+      "segmentio": {
+        "apiKey": "hh7oERdypPdkXzXisDy7QdORTjgeMEmv"
+      },
+      "ga" : {
+        "apiKey": "UA-58865917-1",
+        "account": "UA-58865917-1"
+      }
+    }
+  }
+}

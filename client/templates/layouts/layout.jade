@@ -1,0 +1,10 @@
+template(name="layout")
+  +header
+  +BootstrapAlerts
+  //- +errors
+  .container
+    .col-md-6.col-md-offset-3.text-center
+      +navButtons
+    #main.row-fluid
+      .col-md-12
+        +yield
