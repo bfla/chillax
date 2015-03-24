@@ -19,8 +19,8 @@ addOrRemoveTribeFromCheckbox = (e)->
   params = {tribeId: $target.data('tribe')}
   if $target.is(":checked")
     console.log 'adding tribe...', params
-    Meteor.call 'addTribeForUser', params, handleResponse()
+    Meteor.call 'addTribeForUser', params, Helpers.handleGenericResponse()
   else
     console.log 'removing tribe...', params
-    Meteor.call 'removeTribeForUser', params, handleResponse()
+    Meteor.call 'removeTribeForUser', params, Helpers.handleGenericResponse()
 

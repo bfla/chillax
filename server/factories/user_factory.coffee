@@ -61,7 +61,12 @@ Factory.define 'otherUser', Meteor.users,
         when: new Date()
         hashedToken: "FsZmlgxV7OhjUuk4JuO1O9mW6Y3Blrg/4YEF3QzVzWc="
       ]
-  geojson: geojson
+  lastLocation: geojson
+  friendLists:
+    besties: []
+    newPeople: []
+    facebookFriends: []
+    contacts: []
 
 @seedUsers = () ->
   Factory.create('user')

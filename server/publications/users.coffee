@@ -7,5 +7,18 @@ Meteor.publish 'user', ()->
   q = {_id: @userId}
   return Meteor.users.find(q)
 
-# Meteor.publish 'contacts', ()->
-#   return Meteor.users.find() #redFlag
+Meteor.publish 'friends', (params)->
+  # params.latitude, params.longitude
+  q = {}
+  fields =
+    profile: 1
+    status: 1
+  return Meteor.users.find() #redFlag
+
+Meteor.publish 'strangers', (params)->
+  # params.latitude, params.longitude
+  q = {}
+  fields =
+    profile: 1
+    status: 1
+  return Meteor.users.find() #redFlag

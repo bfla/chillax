@@ -1,15 +1,19 @@
 @CollectionUtils = {}
 
-# CollectionUtils.allowedFriendshipTypes = ['besties', 'new friends', 'facebook', 'second degree', 'all contacts']
-
 CollectionUtils.initGeojson = ()->
   geojson =
     type: "Feature"
     geometry: 
       type: "Point"
       coordinates: []
-      properties : {}
+      properties : {createdAt: new Date()}
 
+CollectionUtils.dbCallback = (err, _id)->
+  if err
+    throw err
+    return err
+  else
+    return _id
 
 # @SharedSchemas = {}
 
@@ -32,9 +36,4 @@ CollectionUtils.initGeojson = ()->
 #     type: Object
 #     optional: true
 
-CollectionUtils.dbCallback = (err, _id)->
-  if err
-    throw err
-    return err
-  else
-    return _id
+# CollectionUtils.allowedFriendshipTypes = ['besties', 'new friends', 'facebook', 'second degree', 'all contacts']
