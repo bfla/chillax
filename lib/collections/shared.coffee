@@ -1,5 +1,7 @@
 @CollectionUtils = {}
 
+# CollectionUtils.allowedFriendshipTypes = ['besties', 'new friends', 'facebook', 'second degree', 'all contacts']
+
 CollectionUtils.initGeojson = ()->
   geojson =
     type: "Feature"

@@ -1,16 +1,30 @@
 @Checkins = new Mongo.Collection('checkins')
 
+# _allowedFriendTypes = CollectionUtils.allowedFriendTypes
+
 CheckinSchema = new SimpleSchema
   userId:
     type: String
+  message:
+    type: String
+    optional: true
+  publishedStatus:
+    type: String
+    # allowedValues: _allowedFriendTypes
+    allowedValues: ['down to chill', 'down to studybuddy', 'unavailable']
+    defaultValue: 'down to chill'
   targetAudience:
     type: String
-    allowedValues: ['besties', 'new', 'contacts']
+    # allowedValues: _allowedFriendTypes.toArray()
+    allowedValues: ['besties', 'new friends', 'facebook', 'second degree', 'all contacts']
     defaultValue: 'besties'
   tribeIds:
     type: [String]
     optional: true
     defaultValue: []
+  # status:
+  #   type: Boolean
+  #   default: true
   geoJson:
     type: Object
   createdAt:
@@ -18,6 +32,7 @@ CheckinSchema = new SimpleSchema
     defaultValue: new Date()
   updatedAt:
     type: Date
+    # autoValue: new Date()
     defaultValue: new Date()
 Checkins.attachSchema(CheckinSchema)
 
@@ -45,7 +60,7 @@ _updateCheckinWithLatLng = (userId, params)->
   query = {_id: params._id}
   fieldUpdates =
     'geoJson.geometry.coordinates': [params.longitude, params.latitude]
-    # updatedAt: new Date()
+    updatedAt: new Date()
   Checkins.update query, {$set: fieldUpdates}, CollectionUtils.dbCallback()
 
 

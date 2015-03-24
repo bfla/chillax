@@ -7,5 +7,5 @@ Meteor.publish 'user', ()->
   q = {_id: @userId}
   return Meteor.users.find(q)
 
-Meteor.publish 'contacts', ()->
-  return Meteor.users.find() #redFlag
+# Meteor.publish 'contacts', ()->
+#   return Meteor.users.find() #redFlag

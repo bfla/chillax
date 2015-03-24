@@ -6,23 +6,31 @@ Router.configure
 
 # Index route ==========================================================================================
 Router.route '/',
-  name: 'index'
+  name: 'home'
   template: 'index'
+  # template: 'editCheckin'
+  # waitOn: ()-> [Meteor.subscribe('checkin')]
+
+# Router.route '/editCheckin',
+#   name: 'editCheckin'
+#   template: 'editCheckin'
+#   waitOn: ()-> [Meteor.subscribe('checkin')]
+
 
 # Local tribe route ====================================================================================
-Router.route '/tribes/:_id',
-  template: 'showTribe'
-  name: 'tribe'
-  waitOn: ()-> 
-    postsParams =
-      tribeId: @params._id
-      longitude: UserMethods.getUserLongitude() || -83.7483 #-83.7483 #redFlag this.params.query.longitude
-      latitude: UserMethods.getUserLatitude() || 42.2814 #42.2814 #redFlag this.params.query.latitude
-    [Meteor.subscribe('tribe', @params._id), Meteor.subscribe('postsForTribe', postsParams)]
-  data: ()-> 
-    data =
-      tribe: Tribes.findOne(@params._id)
-      posts: Posts.find({tribeId: @params._id})
+# Router.route '/tribes/:_id',
+#   template: 'showTribe'
+#   name: 'tribe'
+#   waitOn: ()-> 
+#     postsParams =
+#       tribeId: @params._id
+#       longitude: UserMethods.getUserLongitude() || -83.7483 #-83.7483 #redFlag this.params.query.longitude
+#       latitude: UserMethods.getUserLatitude() || 42.2814 #42.2814 #redFlag this.params.query.latitude
+#     [Meteor.subscribe('tribe', @params._id), Meteor.subscribe('postsForTribe', postsParams)]
+#   data: ()-> 
+#     data =
+#       tribe: Tribes.findOne(@params._id)
+#       posts: Posts.find({tribeId: @params._id})
 
 # User tribe selection route ==========================================================================
 Router.route '/joinTribes',
@@ -31,6 +39,8 @@ Router.route '/joinTribes',
   waitOn: ()-> Meteor.subscribe('listTribes')
   data: ()-> Tribes.find()
 
+
+
 # Helpers ================================================================================
 
 # requireLogin = () ->
@@ -38,7 +48,7 @@ Router.route '/joinTribes',
 #     if Meteor.loggingIn()
 #       @render(@loadingTemplate)
 #     else
-#       @render('index')
+#       @render('splash') #redFlag -- add splash page
 #   else
 #     this.next()
 

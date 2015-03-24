@@ -10,7 +10,6 @@
     }
   },
   "public": {
-    "public": {
     "appName": "chillax",
     "env": {
       "development": true,
