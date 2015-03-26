@@ -1,0 +1,28 @@
+template(name='splash')
+  .splash-header
+    .container
+      .row.text-center: h1.col-md-12.splash-title
+        span.splash-first-two-letters be
+        span.splash-last-letters chill
+      .row.text-center: p.lead.col-md-12.splash-tagline Let people know when you're down to chill. <br> And see who wants to chill with you.
+      //- .row.text-center: p When you're free to hangout, just mark your status as 'down to chill' and choose who you want to chill with. It's that easy.
+      .row
+        .col-md-6.col-md-offset-3
+          form.form.splash-form
+            .splash-inputs
+              .col-md-9: input.form-control.splash-input(type='email' name='email' placeholder='lovely.person@example.com' required)
+              button#invite-request-btn.hidden-xs.hidden-sm.col-md-3.btn.splash-header-btn(type='submit') Request Invite
+              .col-md-3.hidden-md.hidden-lg: button#invite-request-btn.btn.btn-block.splash-header-btn.margin-top-md(type='submit') Request Invite
+            p.lead.text-center.splash-invite-success Thanks. We'll let you know when {{appName}} is ready in your local area!
+      .row.text-center
+        p.splash-header-par: small: a.splash-header-tiny-link(href="#") Login to existing account
+      //- .row
+      //-   p
+      //-     a Get Village
+      //-     a Team
+      //-     a Blog 
+      //-     (0 to IPO in 2 days: I have a theory about consumer startups...)
+      //-     (Uber-rapid development: How we prototyped Village in just 2 days)
+      //-     Don't be an idiot (analytically)
+      //-     Don't be an idiot ()
+      //-     a Terms

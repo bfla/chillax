@@ -7,7 +7,8 @@ Router.configure
 # Index route ==========================================================================================
 Router.route '/',
   name: 'home'
-  template: 'index'
+  template: 'splash'
+  layoutTemplate: 'nakedLayout'
   # template: 'editCheckin'
   # waitOn: ()-> [Meteor.subscribe('checkin')]
 

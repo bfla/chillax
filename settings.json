@@ -10,7 +10,7 @@
     }
   },
   "public": {
-    "appName": "chillax",
+    "appName": "bechill",
     "env": {
       "development": true,
       "production": false

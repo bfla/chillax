@@ -17,6 +17,16 @@
 #     type: Date
 # Posts.attachSchema(PostSchema)
 
+# Posts.allow
+#   insert: ()-> true
+#   update: ()-> true
+#   remove: ()-> false
+
+# Posts.deny
+#   insert: (params)-> _.without(params, 'email', 'geo').length > 0
+#   update: ()-> true
+#   remove: ()-> true
+
 # Meteor.methods
 #   createPost: (params)->
 #     post = params
