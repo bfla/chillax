@@ -1,12 +1,14 @@
 @CollectionUtils = {}
 
-CollectionUtils.initGeojson = ()->
+CollectionUtils.initGeojson = (coords)->
+  # coords are optional
   geojson =
     type: "Feature"
     geometry: 
       type: "Point"
-      coordinates: []
-      properties : {createdAt: new Date()}
+      coordinates: (coords || [])
+      properties: {createdAt: new Date()}
+  return geojson
 
 CollectionUtils.dbCallback = (err, _id)->
   if err

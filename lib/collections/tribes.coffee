@@ -10,15 +10,18 @@ TribeSchema = new SimpleSchema
     type: String
   createdAt:
     type: Date
+    defaultValue: new Date()
   updatedAt:
     type: Date
+    defaultValue: new Date()
 Tribes.attachSchema(TribeSchema)
 
-Meteor.methods
-  createTribe: (params)->
-    tribe = params
-    tribe.createdAt = new Date()
-    tribe.updatedAt = new Date()
+Tribes.allow
+  insert: ()-> false
+  update: ()-> false
+  remove: ()-> false
 
-    Tribes.insert tribe, CollectionUtils.dbCallback()
+Tribes.deny
+  insert: ()-> true #_.without(params, '').length > 0
+  update: ()-> true #_.without(params, '').length > 0
 
